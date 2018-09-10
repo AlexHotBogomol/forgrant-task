@@ -2,44 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <!-- Useful meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="robots" content="index, follow, noodp">
-    <meta name="googlebot" content="index, follow">
-    <meta name="google" content="notranslate">
-    <meta name="format-detection" content="telephone=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500|Ubuntu:300,500,700&amp;subset=cyrillic-ext" rel="stylesheet">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv= x-ua-compatible content= ie=edge>
+    <title>Forgrant</title>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 </head>
 <body>
-    
+    <section class="exchange">
+      <div class="container">
+        <div class="exchange__chooseField">
+          <h1 class="exchange__title">Select currency to exhange:</h1>
+          <select class="exchange__select" id="currency" name="currency">
+            <option selected value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="RUB">RUB</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+        <div class="exchange__cards">
+          <div class="exchange__card exchange__card-eth">
+            <h2 class="card__title">Ethereum</h2>
+            <p class="card__price">
+              <span>Price</span>
+              <span class="price__value"></span>
+            </p>
+            <div class="card__ptcChange">
+              <span>Percent change</span>
+            </div>
+            <p class="card__desc">
+              <span>Hour change</span>
+              <span class="desc__value hourChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Day change</span>
+              <span class="desc__value dayChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Week change</span>
+              <span class="desc__value weekChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Mouth change</span>
+              <span class="desc__value monthChange"></span>
+            </p>
+          </div>
+          <div class="exchange__card exchange__card-ltc">
+            <h2 class="card__title">Litecoin</h2>
+            <p class="card__price">
+              <span>Price</span>
+              <span class="price__value"></span>
+            </p>
+            <div class="card__ptcChange">
+              <span>Percent change</span>
+
+            </div>
+            <p class="card__desc">
+              <span>Hour change</span>
+              <span class="desc__value hourChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Day change</span>
+              <span class="desc__value dayChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Week change</span>
+              <span class="desc__value weekChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Mouth change</span>
+              <span class="desc__value monthChange"></span>
+            </p>
+          </div>
+          <div class="exchange__card exchange__card-btc">
+            <h2 class="card__title">Bitcoin</h2>
+            <p class="card__price">
+              <span>Price</span>
+              <span class="price__value"></span>
+            </p>
+            <div class="card__ptcChange">
+              <span>Percent change</span>
+            </div>
+            <p class="card__desc">
+              <span>Hour change</span>
+              <span class="desc__value hourChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Day change</span>
+              <span class="desc__value dayChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Week change</span>
+              <span class="desc__value weekChange"></span>
+            </p>
+            <p class="card__desc">
+              <span>Mouth change</span>
+              <span class="desc__value monthChange"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 
    <!-- JS -->
-    
-   <script src="assets/js/jquery-3.3.1.min.js"></script>
-   <script src="https://770capital.com/Form770capital/js/FullForm.js"></script>
-   <script>
-      var forms=[{"lang":"ru", "submit":"Регистрация", "cssAdditionalClass":"first"},
-      {"lang":"ru", "submit":"Регистрация", "cssAdditionalClass":"second_for"}];
-      MyConst.initParams(forms);
-   </script>
-   <script type="text/javascript">
-     $(document).ready(function(){
-        $("button[data-href^='#']").on("click", function (event) {
-            event.preventDefault();
-            var id  = $(this).attr('data-href'),
-                top = $(id).offset().top;
-            $('body,html').animate({scrollTop: top}, 1000);
-        });
-      });
-    </script>
-   <script src="assets/js/owl.carousel.min.js"></script>
+   <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
    <script src="assets/js/main.js"></script>
 </body>
 </html>

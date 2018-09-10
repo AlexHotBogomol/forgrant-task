@@ -1,0 +1,135 @@
+@import "reset";
+
+*{
+	box-sizing: border-box;
+}
+
+html, body{
+	overflow-x: hidden;
+	min-width: 320px;
+	font-family: 'Roboto', "Arial", sans-serif;
+	font-size: 10px;
+}
+
+body{
+	background-color: #1b232b;
+}
+
+.container{
+	width: 90%;
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+.exchange{
+	background-color: #1b232b;
+	background-image: url("../img/bg.jpg");
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	padding-top: 70px;
+	padding-bottom: 140px;
+	&__chooseField{
+		align-items: center;
+		background-color: rgba(255,255,255,0.02);
+		border-radius: 10px;
+		border: 1px solid #2b3c45;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 50px;
+		padding-bottom: 30px;
+		padding-left: 130px;
+		padding-right: 20px;
+		padding-top: 30px;
+	}
+	&__title{
+		font-size: 3.2rem;
+	}
+	&__select{
+		border: 1px solid #92e8fe;
+		padding: 20px 15px;
+		font-size: 1.6rem;
+		font-family: inherit;
+		font-weight: 300;
+		width: 295px;
+		border-radius: 10px;
+		color: #fff;
+		background-color: #1e252b;
+		background-image: url(../img/select.png);
+		background-repeat: no-repeat;
+    background-position: 95% 50%;
+	  text-indent: 0.01px; 
+	  text-overflow: '';
+	  -ms-appearance: none;
+	  appearance: none!important;
+	  outline: none;
+    &::-ms-expand {
+		  display: none;
+		}
+	}
+	&__cards{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	&__card{
+		border-radius: 10px;
+		position: relative;
+		width: 306px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+		padding: 20px 28px;
+		// margin-bottom: 10px;
+		.card__title{
+			text-align: center;
+			font-size: 2.2rem;
+			font-weight: 700;
+			padding-bottom: 150px;
+		}
+		.card__price{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			font-weight: 700;
+			font-size: 2rem;
+			padding-bottom: 10px;
+			.price__value{
+				font-size: 2.13;
+			}
+		}
+		.card__ptcChange{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			font-weight: 700;
+			font-size: 1.4rem;
+			padding-bottom: 10px;
+		}
+		.card__desc{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			font-weight: 700;
+			color: #576d5d;
+			font-size: 1.4rem;
+			padding-bottom: 5px;
+			.desc__value{
+				font-size: 1.6rem;
+			}
+		}
+	}
+	&__card-eth{
+		background-image: url("../img/eth-bg.jpg");
+	}
+	&__card-ltc{
+		background-image: url("../img/ltc-bg.jpg");
+	}
+	&__card-btc{
+		background-image: url("../img/btc-bg.jpg");
+	}
+}

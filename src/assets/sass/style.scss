@@ -84,7 +84,6 @@ body{
 		background-size: cover;
 		background-position: center center;
 		padding: 20px 28px;
-		// margin-bottom: 10px;
 		.card__title{
 			text-align: center;
 			font-size: 2.2rem;
@@ -133,3 +132,50 @@ body{
 		background-image: url("../img/btc-bg.jpg");
 	}
 }
+
+// =====================================================================
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  margin: 10px 0 0 20px;
+}
+.checkbox + label {
+  position: relative;
+  padding: 0 151px 0 0 ;
+  cursor: pointer;
+}
+.checkbox + label:before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: 0;
+  width: 50px;
+  height: 20px;
+  border-radius: 13px;
+  background: #CDD1DA;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+  transition: .2s;
+}
+.checkbox + label:after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: 1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  transition: .2s;
+}
+.checkbox:checked + label:before {
+  background: #9FD468;
+}
+.checkbox:checked + label:after {
+  right: 31px;
+}
+// .checkbox:focus + label:before {
+//   box-shadow: inset 0 2px 3px rgba(0,0,0,.2), 0 0 0 3px rgba(255,255,0,.7);
+// }

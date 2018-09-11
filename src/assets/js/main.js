@@ -1,59 +1,69 @@
 $(document).ready(function () {
+  const coins = ['ETH','BTC','LTC'];
+  const checkboxes = document.querySelectorAll(".checkbox");
+  let curVal = document.querySelector("#currency").value;
 
-  const coin = ['ETH','BTC','LTC'];
+  var printDataForCoin = function(coin, isPercent) {
+    curVal = document.querySelector("#currency").value;
+    $.ajax({
+      url: 'https://apiv2.bitcoinaverage.com/indices/global/ticker/' + coin + curVal,
+      dataType: 'json',
+      success: function (data) {
+        const card = document.querySelector(`.exchange__card-${coin.toLowerCase()}`);
 
+        const price = card.querySelector(".price__value"),
+              hourChange = card.querySelector(".hourChange"),
+              dayChange = card.querySelector(".dayChange"),
+              weekChange = card.querySelector(".weekChange"),
+              monthChange = card.querySelector(".monthChange");
 
-  const btc = document.querySelector('.exchange__card-btc');
-			  ltc = document.querySelector('.exchange__card-ltc');
-			  eth = document.querySelector('.exchange__card-eth');
+        let viewType;
+        let specialChar; 
 
-  const arr = [eth, btc, ltc];
+        price.innerHTML = (data.ask).toFixed(2);
 
-  let curVal = $(".exchange__select").val();
+        if(isPercent){
+          viewType = "percent";
+          specialChar = " %";
+        }else{
+          viewType = "price";
+          specialChar = "";
+        }
+        
+        insertData(hourChange, data.changes[viewType].hour, specialChar);
+        insertData(dayChange, data.changes[viewType].day, specialChar);
+        insertData(weekChange, data.changes[viewType].week, specialChar);
+        insertData(monthChange, data.changes[viewType].month, specialChar);
+      },
+      error: function (jqXHR, exception) {
+        console.log(exception);
+      }
+    });
+  };
 
-  function insertData(element, data){
-  	if(parseInt(data)<=0){
-  		element.style.color = "red";
-  	}else{
-  		element.style.color = "#70c446";
-  	}
-  	element.innerHTML = data;
+  function insertData(element, data, specialChar){
+    if(parseInt(data)<=0){
+      element.style.color = "red";
+    }else{
+      element.style.color = "#70c446";
+    }
+    element.innerHTML = data + specialChar;
   }
 
-  
-  var getData = function() {
-    for (var i in coin) {
-		  (function(i, coin) {
-		    $.ajax({
-		      url: 'https://apiv2.bitcoinaverage.com/indices/global/ticker/' + coin[i] + curVal,
-		      dataType: 'json',
-		      success: function (data) {
-		        const price = arr[i].querySelector(".price__value"),
-		        			hourChange = arr[i].querySelector(".hourChange"),
-		        			dayChange = arr[i].querySelector(".dayChange"),
-		        			weekChange = arr[i].querySelector(".weekChange"),
-		        			monthChange = arr[i].querySelector(".monthChange");
+  checkboxes.forEach(function(checkbox){
+    checkbox.addEventListener("change", function(e){
+       printDataForCoin(e.target.dataset.coin, e.target.checked);
+    })
+  })
 
-	        	price.innerHTML = (data.ask).toFixed(2);
-	        	insertData(hourChange, data.changes.price.hour);
-	        	insertData(dayChange, data.changes.price.day);
-	        	insertData(weekChange, data.changes.price.week);
-	        	insertData(monthChange, data.changes.price.month);
-		      },
-		      error: function (jqXHR, exception) {
-		        console.log(exception);
-		      }
-		    });
-		  })(i, coin);
-		}
-	};
+  coins.forEach(function(coin){
+     printDataForCoin(coin, document.querySelector(`#checkbox-${coin.toLowerCase()}`).checked);
+  })
 
-  getData();
+  document.querySelector("#currency").addEventListener("change", function(){
+    coins.forEach(function(coin){
+       printDataForCoin(coin, document.querySelector(`#checkbox-${coin.toLowerCase()}`).checked);
+    })
+  })
 
-  $(function() {
-    $('.exchange__select').change(function() {
-      curVal = $(".exchange__select option:selected").val();
-     	getData();
-    });
-  });
 });

@@ -102,6 +102,32 @@ body {
     font-size: 3.2rem;
 }
 
+.exchange__select {
+    border: 1px solid #92e8fe;
+    padding: 20px 15px;
+    font-size: 1.6rem;
+    font-family: inherit;
+    font-weight: 300;
+    width: 295px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #1e252b;
+    background-image: url(../img/select.png);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -ms-appearance: none;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    outline: none;
+}
+
+.exchange__select::-ms-expand {
+    display: none;
+}
+
 .exchange__cards {
     display: -ms-flexbox;
     display: flex;
@@ -244,49 +270,6 @@ body {
 
 .checkbox:checked + label:after {
     right: 23px;
-}
-
-.jq-selectbox__select {
-    border: 1px solid #92e8fe;
-    font-size: 1.6rem;
-    font-family: inherit;
-    font-weight: 300;
-    width: 295px;
-    border-radius: 10px;
-    color: #fff;
-    background-color: #1e252b;
-}
-
-.jq-selectbox__dropdown {
-    margin-top: 10px;
-    background-color: #1e252b;
-    border: 1px solid #92e8fe;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.jq-selectbox li {
-    color: #fff;
-    font-size: 1.6rem;
-    font-weight: 300;
-    padding-bottom: 10px;
-}
-
-.jq-selectbox li:hover {
-    background-color: rgba(255, 255, 255, 0.01);
-}
-
-.jq-selectbox__trigger {
-    border-left: none;
-}
-
-.jq-selectbox__trigger-arrow {
-    background-image: url("../img/select.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    border: none;
-    width: 10px;
-    height: 10px;
 }
 
 @media only screen and (max-width: 1087px) {

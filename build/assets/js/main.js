@@ -2,7 +2,6 @@ $(document).ready(function () {
   const coins = ['ETH','BTC','LTC'];
   const checkboxes = document.querySelectorAll(".checkbox");
   let curVal = document.querySelector("#currency").value;
-
   var printDataForCoin = function(coin, isPercent) {
     curVal = document.querySelector("#currency").value;
     $.ajax({
@@ -59,19 +58,9 @@ $(document).ready(function () {
   coins.forEach(function(coin){
      printDataForCoin(coin, document.querySelector(`#checkbox-${coin.toLowerCase()}`).checked);
   })
-
-  document.querySelector("#currency").addEventListener("change", function(){
+  document.querySelector("#currency").addEventListener("change", function(e){
     coins.forEach(function(coin){
        printDataForCoin(coin, document.querySelector(`#checkbox-${coin.toLowerCase()}`).checked);
     })
   })
-
-
-
-  $(function() {
-
-    $('.exchange__select').styler();
-
-  });
-
 });

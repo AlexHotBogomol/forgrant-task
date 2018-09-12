@@ -20,7 +20,7 @@ $(document).ready(function () {
         let viewType;
         let specialChar; 
 
-        price.innerHTML = (data.ask).toFixed(2);
+        price.innerHTML = "$" + (data.ask).toFixed(2);
 
         if(isPercent){
           viewType = "percent";
@@ -65,5 +65,13 @@ $(document).ready(function () {
        printDataForCoin(coin, document.querySelector(`#checkbox-${coin.toLowerCase()}`).checked);
     })
   })
+
+
+
+  $(function() {
+
+    $('.exchange__select').styler();
+
+  });
 
 });

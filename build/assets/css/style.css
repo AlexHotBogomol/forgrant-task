@@ -102,53 +102,36 @@ body {
     font-size: 3.2rem;
 }
 
-.exchange__select {
-    border: 1px solid #92e8fe;
-    padding: 20px 15px;
-    font-size: 1.6rem;
-    font-family: inherit;
-    font-weight: 300;
-    width: 295px;
-    border-radius: 10px;
-    color: #fff;
-    background-color: #1e252b;
-    background-image: url(../img/select.png);
-    background-repeat: no-repeat;
-    background-position: 95% 50%;
-    text-indent: 0.01px;
-    text-overflow: '';
-    -ms-appearance: none;
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-    outline: none;
-}
-
-.exchange__select::-ms-expand {
-    display: none;
-}
-
 .exchange__cards {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
     flex-direction: row;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    -ms-flex-pack: center;
+    justify-content: center;
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -ms-flex-line-pack: center;
+    align-content: center;
 }
 
 .exchange__card {
-    border-radius: 10px;
+    border-radius: 13px;
     position: relative;
-    width: 306px;
+    max-width: 306px;
+    -ms-flex-preferred-size: 330px;
+    flex-basis: 330px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     padding: 20px 28px;
+    margin-right: 30px;
+}
+
+.exchange__card:last-child {
+    margin-right: 0;
 }
 
 .exchange__card .card__title {
@@ -194,7 +177,7 @@ body {
     -ms-flex-pack: justify;
     justify-content: space-between;
     font-weight: 700;
-    color: #576d5d;
+    color: rgba(255, 255, 255, 0.2);
     font-size: 1.4rem;
     padding-bottom: 5px;
 }
@@ -231,10 +214,10 @@ body {
 .checkbox + label:before {
     content: '';
     position: absolute;
-    top: -4px;
+    top: -1px;
     right: 0;
-    width: 50px;
-    height: 20px;
+    width: 40px;
+    height: 15px;
     border-radius: 13px;
     background: #CDD1DA;
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
@@ -244,20 +227,121 @@ body {
 .checkbox + label:after {
     content: '';
     position: absolute;
-    top: -2px;
-    right: 1px;
-    width: 16px;
-    height: 16px;
-    border-radius: 10px;
-    background: #FFF;
+    top: -4px;
+    right: -4px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #777777;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: .2s;
+    border: 2px solid #fff;
 }
 
 .checkbox:checked + label:before {
-    background: #9FD468;
+    background: #3eb3ef;
 }
 
 .checkbox:checked + label:after {
-    right: 31px;
+    right: 23px;
+}
+
+.jq-selectbox__select {
+    border: 1px solid #92e8fe;
+    font-size: 1.6rem;
+    font-family: inherit;
+    font-weight: 300;
+    width: 295px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #1e252b;
+}
+
+.jq-selectbox__dropdown {
+    margin-top: 10px;
+    background-color: #1e252b;
+    border: 1px solid #92e8fe;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.jq-selectbox li {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 300;
+    padding-bottom: 10px;
+}
+
+.jq-selectbox li:hover {
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+.jq-selectbox__trigger {
+    border-left: none;
+}
+
+.jq-selectbox__trigger-arrow {
+    background-image: url("../img/select.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    width: 10px;
+    height: 10px;
+}
+
+@media only screen and (max-width: 1087px) {
+    .exchange__card {
+        margin-bottom: 30px;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .exchange__chooseField {
+        padding-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 747px) {
+    .exchange__cards {
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .exchange .checkbox + label {
+        padding: 0 101px 0 0;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .exchange__chooseField {
+        padding-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .exchange__title {
+        padding-bottom: 15px;
+        font-size: 2.4rem;
+    }
+
+    .exchange__select {
+        padding: 10px 10px;
+    }
+
+    .exchange__chooseField {
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .exchange__title {
+        font-size: 1.8rem;
+    }
+
+    .exchange__select {
+        width: 90%;
+    }
 }
